@@ -1,46 +1,43 @@
 """
-The `~certbot_dns_gehirn.dns_gehirn` plugin automates the process of completing
+The `~certbot_dns_gratisdns.dns_gratisdns` plugin automates the process of completing
 a ``dns-01`` challenge (`~acme.challenges.DNS01`) by creating, and subsequently
-removing, TXT records using the Gehirn Infrastracture Service DNS API.
+removing, TXT records using the GratisDNS.dk web interface.
 
 
 Named Arguments
 ---------------
 
 ========================================  =====================================
-``--dns-gehirn-credentials``              Gehirn Infrastracture Service
-                                          credentials_ INI file.
+``--dns-gratisdns-credentials``           GratisDNS.dk credentials_ INI file.
                                           (Required)
-``--dns-gehirn-propagation-seconds``      The number of seconds to wait for DNS
+``--dns-gratisdns-propagation-seconds``   The number of seconds to wait for DNS
                                           to propagate before asking the ACME
                                           server to verify the DNS record.
-                                          (Default: 30)
+                                          (Default: 660)
 ========================================  =====================================
 
 
 Credentials
 -----------
 
-Use of this plugin requires a configuration file containing
-Gehirn Infrastracture Service DNS API credentials,
-obtained from your Gehirn Infrastracture Service
-`dashboard <https://gis.gehirn.jp/>`_.
+Use of this plugin requires a configuration file.
 
 .. code-block:: ini
    :name: credentials.ini
    :caption: Example credentials file:
 
-   # Gehirn Infrastracture Service API credentials used by Certbot
-   dns_gehirn_api_token  = 00000000-0000-0000-0000-000000000000
-   dns_gehirn_api_secret = MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAw
+   # GratisDNS credentials used by Certbot
+   certbot_dns_gratisdns:dns_gratisdns_username = example
+   certbot_dns_gratisdns:dns_gratisdns_password = hunter2
+   certbot_dns_gratisdns:dns_gratisdns_otp_secret = GE4GMZJSGNRTCNJSGEZDKYZYGEZGEYZXGU3TIYRXMZTGCODFGRQWMOBSGYYDEYTE
 
 The path to this file can be provided interactively or using the
-``--dns-gehirn-credentials`` command-line argument. Certbot records the path
+``--dns-gratisdns-credentials`` command-line argument. Certbot records the path
 to this file for use during renewal, but does not store the file's contents.
 
 .. caution::
    You should protect these API credentials as you would the password to your
-   Gehirn Infrastracture Service account. Users who can read this file can use
+   GratisDNS account. Users who can read this file can use
    these credentials to issue arbitrary API calls on your behalf. Users who can
    cause Certbot to run using these credentials can complete a ``dns-01``
    challenge to acquire new certificates or revoke existing certificates for
@@ -61,8 +58,8 @@ Examples
    :caption: To acquire a certificate for ``example.com``
 
    certbot certonly \\
-     --dns-gehirn \\
-     --dns-gehirn-credentials ~/.secrets/certbot/gehirn.ini \\
+     --dns-gratisdns \\
+     --dns-gratisdns-credentials ~/.secrets/certbot/gratisdns.ini \\
      -d example.com
 
 .. code-block:: bash
@@ -70,19 +67,19 @@ Examples
              ``www.example.com``
 
    certbot certonly \\
-     --dns-gehirn \\
-     --dns-gehirn-credentials ~/.secrets/certbot/gehirn.ini \\
+     --dns-gratisdns \\
+     --dns-gratisdns-credentials ~/.secrets/certbot/gratisdns.ini \\
      -d example.com \\
      -d www.example.com
 
 .. code-block:: bash
-   :caption: To acquire a certificate for ``example.com``, waiting 60 seconds
+   :caption: To acquire a certificate for ``example.com``, waiting 300 seconds
              for DNS propagation
 
    certbot certonly \\
-     --dns-gehirn \\
-     --dns-gehirn-credentials ~/.secrets/certbot/gehirn.ini \\
-     --dns-gehirn-propagation-seconds 60 \\
+     --dns-gratisdns \\
+     --dns-gratisdns-credentials ~/.secrets/certbot/gratisdns.ini \\
+     --dns-gratisdns-propagation-seconds 300 \\
      -d example.com
 
 """

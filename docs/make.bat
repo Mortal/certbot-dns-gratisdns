@@ -9,7 +9,7 @@ if "%SPHINXBUILD%" == "" (
 )
 set SOURCEDIR=.
 set BUILDDIR=_build
-set SPHINXPROJ=certbot-dns-gehirn
+set SPHINXPROJ=certbot-dns-gratisdns
 
 if "%1" == "" goto help
 

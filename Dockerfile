@@ -1,5 +1,5 @@
 FROM certbot/certbot
 
-COPY . src/certbot-dns-gehirn
+COPY . src/certbot-dns-gratisdns
 
-RUN pip install --no-cache-dir --editable src/certbot-dns-gehirn
+RUN pip install --no-cache-dir --editable src/certbot-dns-gratisdns

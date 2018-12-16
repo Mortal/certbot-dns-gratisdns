@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to certbot-dns-gehirn's documentation!
+Welcome to certbot-dns-gratisdns's documentation!
 ==============================================
 
 .. toctree::
@@ -15,7 +15,7 @@ Welcome to certbot-dns-gehirn's documentation!
 
    api
 
-.. automodule:: certbot_dns_gehirn
+.. automodule:: certbot_dns_gratisdns
    :members:
 
 

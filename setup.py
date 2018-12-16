@@ -20,12 +20,12 @@ docs_extras = [
 ]
 
 setup(
-    name='certbot-dns-gehirn',
+    name='certbot-dns-gratisdns',
     version=version,
-    description="Gehirn Infrastracture Service DNS Authenticator plugin for Certbot",
+    description="GratisDNS DNS Authenticator plugin for Certbot",
     url='https://github.com/certbot/certbot',
-    author="Certbot Project",
-    author_email='client-dev@letsencrypt.org',
+    author="Mathias Rav",
+    author_email="m@git.strova.dk",
     license='Apache License 2.0',
     python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*',
     classifiers=[
@@ -57,8 +57,8 @@ setup(
     },
     entry_points={
         'certbot.plugins': [
-            'dns-gehirn = certbot_dns_gehirn.dns_gehirn:Authenticator',
+            'dns-gratisdns = certbot_dns_gratisdns.dns_gratisdns:Authenticator',
         ],
     },
-    test_suite='certbot_dns_gehirn',
+    # test_suite='certbot_dns_gratisdns',
 )

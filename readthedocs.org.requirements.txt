@@ -9,4 +9,4 @@
 
 -e acme
 -e .
--e certbot-dns-gehirn[docs]
+-e certbot-dns-gratisdns[docs]
